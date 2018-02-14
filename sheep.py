@@ -15,7 +15,15 @@ def plot_data(collar, data):
     ax.set_title("Histogram of y-position for collar {}".format(collar))
     ax.set_ylabel("Frequency")
     ax.set_xlabel("y position")
-    plt.hist(data[y_pos], edgecolor='black', normed=True)
+    n, bins, patches = plt.hist(data[y_pos], edgecolor='black', normed=True)
+    rows = []
+
+    f = open("{}_histogram.csv".format(collar), "w")
+    f.write("lower_bound,upper_bound,frequency")
+    for i in range(len(n)):
+        f.write("{},{},{}".format(bins[i], bins[i + 1], n[i]))
+        rows.append((bins[i], bins[i + 1], n[i]))
+    
     f.savefig("{}.pdf".format(collar))
     f.clear()
 
