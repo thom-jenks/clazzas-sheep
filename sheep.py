@@ -19,7 +19,7 @@ def plot_data(collar, data):
     rows = []
 
     f = open("{}_histogram.csv".format(collar), "w")
-    f.write("lower_bound,upper_bound,frequency")
+    f.write("lower_bound,upper_bound,frequency\n")
     for i in range(len(n)):
         f.write("{},{},{}\n".format(bins[i], bins[i + 1], n[i]))
         rows.append((bins[i], bins[i + 1], n[i]))
