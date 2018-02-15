@@ -11,7 +11,7 @@ pos_confidence_thres = 0.8
 
 def plot_data(collar, data):
     print("Plotting histogram for collar {}".format(collar))
-    f, ax = plt.subplots()
+    fig, ax = plt.subplots()
     ax.set_title("Histogram of y-position for collar {}".format(collar))
     ax.set_ylabel("Frequency")
     ax.set_xlabel("y position")
@@ -24,8 +24,8 @@ def plot_data(collar, data):
         f.write("{},{},{}".format(bins[i], bins[i + 1], n[i]))
         rows.append((bins[i], bins[i + 1], n[i]))
     
-    f.savefig("{}.pdf".format(collar))
-    f.clear()
+    fig.savefig("{}.pdf".format(collar))
+    fig.clear()
 
 def write_stats(collar, data):
     print("Writing statistics of collar")
