@@ -19,9 +19,10 @@ def plot_data(collar, data):
     rows = []
 
     f = open("{}_histogram.csv".format(collar), "w")
-    f.write("lower_bound,upper_bound,frequency\n")
+    f.write("lower_bound,upper_bound,frequency,proportion,percentage\n")
     for i in range(len(n)):
-        f.write("{},{},{}\n".format(bins[i], bins[i + 1], n[i]))
+        prop = (bins[i + 1] - bins[i])*n[i]
+        f.write("{},{},{},{},{}\n".format(bins[i], bins[i + 1], n[i], prop, prop*100))
         rows.append((bins[i], bins[i + 1], n[i]))
     
     fig.savefig("{}.pdf".format(collar))
