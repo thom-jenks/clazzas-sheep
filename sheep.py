@@ -21,7 +21,7 @@ def plot_data(collar, data):
     f = open("{}_histogram.csv".format(collar), "w")
     f.write("lower_bound,upper_bound,frequency")
     for i in range(len(n)):
-        f.write("{},{},{}".format(bins[i], bins[i + 1], n[i]))
+        f.write("{},{},{}\n".format(bins[i], bins[i + 1], n[i]))
         rows.append((bins[i], bins[i + 1], n[i]))
     
     fig.savefig("{}.pdf".format(collar))
