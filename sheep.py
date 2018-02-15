@@ -24,7 +24,7 @@ def plot_data(collar, data, indir):
     n, bins, patches = plt.hist(data[y_pos], edgecolor='black', normed=True)
     rows = []
 
-    f = open("{}/{}_histogram.csv".format(indir/collar), "w")
+    f = open("{}/{}_histogram.csv".format(indir, collar), "w")
     f.write("lower_bound,upper_bound,frequency,proportion,percentage\n")
     for i in range(len(n)):
         prop = (bins[i + 1] - bins[i])*n[i]
